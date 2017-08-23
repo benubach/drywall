@@ -58,6 +58,12 @@ app.use(passport.session());
 app.use(csrf({ cookie: { signed: true } }));
 helmet(app);
 
+app.use(require('connect-flash')());
+app.use(function(req, res, next) {
+  res.locals.messages = require('express-messages')(req, res);
+  next();
+});
+
 //response locals
 app.use(function(req, res, next) {
   res.cookie('_csrfToken', req.csrfToken());
@@ -72,6 +78,7 @@ app.locals.projectName = app.config.projectName;
 app.locals.copyrightYear = new Date().getFullYear();
 app.locals.copyrightName = app.config.companyName;
 app.locals.cacheBreaker = 'br34k-01';
+app.locals.moment = require('moment');
 
 //setup passport
 require('./passport')(app, passport);

@@ -61,7 +61,9 @@ module.exports = function(grunt) {
             'node_modules/**',
             'public/**'
           ],
-          ext: 'js'
+          ext: 'js',
+          nodeArgs: ['--inspect']
+
         }
       }
     },

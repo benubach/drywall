@@ -15,15 +15,18 @@
     "bcrypt": "0.8.x",
     "body-parser": "1.x.x",
     "compression": "1.x.x",
+    "connect-flash": "^0.1.1",
     "connect-mongo": "1.x.x",
     "cookie-parser": "1.x.x",
     "csurf": "1.x.x",
     "emailjs": "1.x.x",
     "express": "4.13.x",
+    "express-messages": "^1.0.1",
     "express-session": "1.x.x",
     "helmet": "2.x.x",
     "jade": "1.x.x",
     "method-override": "2.x.x",
+    "moment": "^2.18.1",
     "mongoose": "4.x.x",
     "morgan": "1.x.x",
     "passport": "0.3.x",
@@ -55,7 +58,6 @@
     "html5shiv": "3.x.x",
     "jquery": "2.x.x",
     "jquery.cookie": "1.x.x",
-    "moment": "2.13.x",
     "respond.js": "1.x.x"
   }
 }
