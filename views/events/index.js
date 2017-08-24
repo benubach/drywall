@@ -180,3 +180,29 @@ exports.edit = function(req, res, next) {
 
     });
 };
+
+exports.delete = function (req, res, next) {
+
+    if(!req.isAuthenticated()){
+        req.flash("error", "You're not logged in");
+        res.location("/events");
+        res.redirect("/events");
+    }
+    
+    var workflow = req.app.utility.workflow(req, res);
+
+    workflow.on('deleteEvent', function() {
+        req.app.db.models.Event.findByIdAndRemove(req.params._id, function(err, event) {
+            if(err){
+                console.error("Error deleting event: ", err);
+                return workflow.emit('exception', err);
+            }
+
+            req.flash("success", "Event Deleted");
+            res.location("/events");
+            res.send(200);
+        });
+    });
+
+    workflow.emit('deleteEvent');
+};

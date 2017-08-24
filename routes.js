@@ -42,6 +42,9 @@ exports = module.exports = function(app, passport) {
   app.get('/events/edit/:_id', require('./views/events/index').edit);
   app.post('/events/', require('./views/events/index').create);
   app.post('/events/update/:_id', require('./views/events/index').update);
+  app.delete('/events/:_id', require('./views/events/index').delete);
+  
+  //myevents
   app.get('/myevents/', require('./views/myevents/index').find);
 
   //sign up
